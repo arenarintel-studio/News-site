@@ -1,0 +1,157 @@
+body {
+    margin-top: 0;
+    background: #f5f5f5;
+    color: #111;
+    line-height: 1.4;
+}
+* {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-header {
+    /*Display flex is a command which allows u to use the align, justify and other elements. It usually helps in position*/
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+
+    transform: scale(0.6); /* 1.5 = 150% bigger, 0.8 = 80% smaller */
+    transform-origin: center; /* scale from the center of the div */
+}
+
+.logo-header h1{
+    font-family: Arial, sans-serif;
+    font-size: 43px;
+    transform: translateY(-12px);
+    margin-top: 0;
+    
+    /* Make the logo match text darkness */
+    filter: brightness(0.15) contrast(1.2);
+}
+
+.logo-header img {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background: white;      /* ensures content below doesn’t show through */
+    z-index: 1000;          /* stays above content */
+}
+
+
+nav {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    background: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #111;
+    font-family: Tahoma;
+    font-size: 15px;
+}
+
+nav ul li a:hover {
+    color: #f00;
+    transition: 0.3s;
+}
+
+.home-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+    padding: 0 0;
+}
+
+.post h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 16px;
+}
+
+.menu {
+    font-size: 32px;
+    font-weight: bold;
+    scroll-margin-top: 120px;
+}
+
+.post-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.post-link:hover {
+    cursor: pointer;
+}
+
+.post-link h3 {
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.post-link:hover h3 {
+    text-decoration: underline;
+}
+
+.post-link p {
+    text-decoration: none;
+}
+
+footer {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url("resources/arenar intel colosseum.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 60px 0;
+}
+footer p {
+    max-width: 700px;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0;
+}
