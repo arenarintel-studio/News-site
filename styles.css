@@ -1,157 +1,463 @@
-body {
-    margin-top: 0;
-    background: #f5f5f5;
-    color: #111;
-    line-height: 1.4;
+:root {
+    --bg: white;
+    --dark: black;
+    --text-muted: #888888;
 }
+
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-}
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 100%;
 }
 
-.logo-header {
-    /*Display flex is a command which allows u to use the align, justify and other elements. It usually helps in position*/
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    height: 60px;
-
-    transform: scale(0.6); /* 1.5 = 150% bigger, 0.8 = 80% smaller */
-    transform-origin: center; /* scale from the center of the div */
+body {
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo-header h1{
-    font-family: Arial, sans-serif;
-    font-size: 43px;
-    transform: translateY(-12px);
-    margin-top: 0;
-    
-    /* Make the logo match text darkness */
-    filter: brightness(0.15) contrast(1.2);
-}
-
-.logo-header img {
-    width: 80px;
-    height: auto;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-.sticky-header {
+header {
     position: sticky;
     top: 0;
-    background: white;      /* ensures content below doesn’t show through */
-    z-index: 1000;          /* stays above content */
-}
+    z-index: 1000;
 
-
-nav {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding: 8px 0;
-    background: white;
-}
-
-nav ul {
     display: flex;
-    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg);
+    color: var(--dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0 1rem;
+    height: 56px;
+}
+
+.logo-box {
+    width: 7rem;
     padding: 0;
     margin: 0;
-    gap: 30px;
+}
+
+.header-left svg {
+    width: 35px;
+    height: 35px;
+}
+
+.hamburgerbtn {
+    display: flex;
     justify-content: center;
     align-items: center;
+  width: 42px;
+  height: 42px;
+  color: black;
+
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #111;
-    font-family: Tahoma;
-    font-size: 15px;
+.header-right {
+    position: relative;
+    width: 42px;
+    height: 42px;
 }
 
-nav ul li a:hover {
-    color: #f00;
-    transition: 0.3s;
-}
-
-.home-posts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin: 40px 0;
-    padding: 0 0;
-}
-
-.post h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.post p {
-    font-size: 16px;
-}
-
-.menu {
-    font-size: 32px;
-    font-weight: bold;
-    scroll-margin-top: 120px;
-}
-
-.post-link {
-    text-decoration: none;
-    display: block;
-    color: inherit;
-}
-
-.post-link:hover {
+.close-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
     cursor: pointer;
+    color: #333;
+    width: 35px;
+    height: 35px;
 }
 
-.post-link h3 {
+.close-icon.show-close {
+    display: flex;
+}
+
+.hide-icon {
+  display: none;
+}
+
+.show-close {
+  display: block;
+}
+
+.menu-panel {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 100%;
+    height: calc(100% - 56px);
+    background-color: #0a0a0a;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.menu-panel.open {
+    transform: translateX(0);
+}
+
+.menu-logo {
+    width: 7rem;
+    height: auto;
+    
+}
+
+.menu-search {
+    padding: 24px 20px 8px;
+}
+
+.menu-search input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    font-size: 15px;
+    color: white;
+    outline: none;
+}
+
+.menu-search input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.menu-search input:focus {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.12);
+}
+
+.menu-nav {
+    padding: 8px 0;
+    flex: 1;
+}
+
+.menu-nav a {
+    display: block;
+    padding: 16px 20px;
+    color: rgba(255,255,255,0.85);
+    font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
-    transition: 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
 }
 
-.post-link:hover h3 {
+.menu-nav a.active {
+    border-left: 4px solid white;
+    padding-left: 24px;
+    color: white;
+}
+.menu-nav a:hover {
+    color: white;
+    padding-left: 28px;
+    background: rgba(255,255,255,0.05);
+}
+
+.menu-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu-footer p {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+}
+
+.close-icon.show-close {
+    display: flex;
+}
+
+.x-bar a {
+    display: flex;
+    align-items: center;
+    background-color: var(--dark);
+    padding: 4px 2px;
+    font-size: 1rem;
+    color: var(--bg);
+    text-decoration: none;
+    gap: 4px;
+    width: 100%;
+    height: 32px;
+}
+
+.x-bar .fa-x-twitter {
+    font-size: 1rem;
+    border: 1px solid white;
+    padding: 4px 6px;
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+.x-bar p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-feed {
+    padding: 1rem;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover .featured-card img {
+    opacity: 0.85;
+}
+
+.card-link:hover h2 {
     text-decoration: underline;
 }
 
-.post-link p {
-    text-decoration: none;
+.featured-card {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.featured-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.card-info span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-info h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 3px;
+    color: var(--dark);
+}
+
+.card-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.card-info small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.basic-card {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.text-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.text-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--dark);
+}
+
+.text-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+}
+
+.compact-card {
+    display: flex;
+    gap: 0.75rem;
+    
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.compact-card img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.compact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.compact-info span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.compact-info h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark);
+}
+
+.compact-info small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+.grid-feed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.grid-card img {
+    width: 100%;
+}
+.grid-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.grid-card:hover {
+    opacity: 0.85;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.grid-card h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark);
 }
 
 footer {
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        url("resources/arenar intel colosseum.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    color: white;
-    padding: 60px 0;
-}
-footer p {
-    max-width: 700px;
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 1);
 }
 
-footer a {
-    color: #fff;
+
+.footer-logo-box img {
+    display: inline-block;
+    justify-content: center;
+    width: 7rem;
+    height: auto;
+}
+
+.footer-logo-box {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.footer-logo-box p {
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer .socials {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+footer .socials p {
+    font-size: 0.7rem;
+    padding-bottom: 0.55rem;
+}
+footer .social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    line-height: 0.1;
+
+    justify-content: flex-start;
+}
+
+.footer-bottom a {
+    display: inline-flex;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+    font-size: 0.7rem;
+    align-items: center;
+    font-weight: bold;
+}
+
+.footer-bottom a:hover {
     text-decoration: underline;
 }
 
-footer hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 0;
+.footer-bottom-p {
+    gap: 1rem;
+    opacity: 0.8;
+    font-size: 0.8rem;
 }
+
+.footer-bottom i {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.footer-bottom a i {
+    margin-left: 4px;
+    position: relative;
+    top: -1px;
+}
+
