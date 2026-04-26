@@ -16,3 +16,13 @@ function closeMenu() {
 
 hamburgerBtn.addEventListener("click", openMenu);
 closeBtn.addEventListener("click", closeMenu);
+
+// Auto-highlight active nav link based on current page
+const currentPage = document.body.dataset.page;
+const navLinks = document.querySelectorAll('.menu-nav a');
+
+navLinks.forEach(link => {
+    if (link.dataset.page === currentPage) {
+        link.classList.add('active');
+    }
+});

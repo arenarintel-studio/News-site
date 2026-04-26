@@ -175,7 +175,7 @@ header {
 }
 
 .menu-nav a.active {
-    border-left: 4px solid white;
+    border-left: 6px solid white;
     padding-left: 24px;
     color: white;
 }
