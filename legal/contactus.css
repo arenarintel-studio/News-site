@@ -179,8 +179,7 @@ header {
 
 .menu-nav a:hover {
   color: white;
-  padding-left: 28px;
-  background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .menu-footer {
