@@ -4,6 +4,8 @@ const closeBtn = document.getElementById("closeBtn");
 const menuOverlay = document.getElementById("menuOverlay");
 
 function openMenu() {
+    menuPanel.style.display = 'flex';
+    menuPanel.getBoundingClientRect(); // forces browser to register position
     menuPanel.classList.add("open");
     menuOverlay.classList.add("active");
     hamburgerBtn.classList.add("hide-icon");
