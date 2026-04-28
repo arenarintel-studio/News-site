@@ -267,7 +267,7 @@ header {
 }
 
 .featured-card {
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
   line-height: 1.2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -275,7 +275,7 @@ header {
 .featured-card img {
   width: 100%;
   border-radius: 8px;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.4rem;
   transition: all 0.3s ease;
 }
 
@@ -299,7 +299,7 @@ header {
 }
 
 .text-card {
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   line-height: 1.2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -316,7 +316,7 @@ header {
 }
 
 .basic-card {
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   line-height: 1.2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -349,7 +349,7 @@ header {
 .compact-card {
   display: flex;
   gap: 0.6rem;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   line-height: 1.2;
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -385,7 +385,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
