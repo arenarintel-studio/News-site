@@ -11,9 +11,21 @@
     max-width: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
     overflow-x: hidden;
-    font-family: times, sans-serif, arial;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+
 }
 
 header {
@@ -282,14 +294,13 @@ header {
 }
 
 .card-info h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
     color: var(--dark);
 }
 
 .card-info p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 4px;
 }
