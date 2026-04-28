@@ -1,6 +1,6 @@
 :root {
     --bg: white;
-    --dark: black;
+    --dark: #1e1d1d;
     --text-muted: #514e4e;
 }
 
@@ -13,7 +13,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: times, sans-serif, arial;
 }
 
 header {
@@ -220,31 +220,32 @@ header {
     display: flex;
     align-items: center;
     background-color: var(--dark);
-    padding: 4px 2px;
-    font-size: 1rem;
+    padding: 0 2px;
     color: var(--bg);
     text-decoration: none;
-    gap: 4px;
     width: 100%;
-    height: 32px;
+    height: 30px;
+    margin: 0;
 }
 
 .x-bar .fa-x-twitter {
     display: inline;
-    font-size: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
     border: 1px solid white;
-    padding: 4px 6px;
-    border-radius: 6px;
+    padding: 2px 3px;
+    border-radius: 4px;
     margin: 0 2px;
 }
 .x-bar {
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 1rem 0.2rem;
+    padding: 0.5rem 0.2rem;
 }
 
 .x-bar span {
+    font-size: 1.1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -276,14 +277,14 @@ header {
 .featured-card img {
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.1rem;
     transition: all 0.3s ease;
 }
 
 .card-info h2 {
     font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 2px;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
     color: var(--dark);
 }
 
@@ -306,7 +307,7 @@ header {
 
 .text-card h3 {
     font-size: 1.1rem;
-    font-weight: 600;
+    
     color: var(--dark);
     margin-bottom: 0.2rem;
 }
