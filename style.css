@@ -292,7 +292,7 @@ touch-action: manipulation;
 .card-info p {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-info small {
